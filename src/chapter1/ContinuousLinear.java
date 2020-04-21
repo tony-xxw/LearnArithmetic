@@ -15,7 +15,7 @@ public class ContinuousLinear {
 
         }
 
-        public void insertElement(int i, int index) {
+        private void insertElement(int i, int index) {
             if (i == arr1.length - 1) {
                 return;
             } else if (i < 0 || i > arr1.length - 1) {
@@ -30,8 +30,25 @@ public class ContinuousLinear {
             }
         }
 
+        private void deleteElement(int i){
+            if (i<0|| i> arr1.length){
+                return;
+            }else if (i==arr1.length-1){
+                return;
+            }else {
+                for (int j = i;j<arr1.length-1;j++){
+                    if (j!=arr1.length-1){
+                        arr1[j] = arr1[j+1];
+                    }
+                }
+            }
+
+        }
+
         void log() {
-            System.out.print(arr1);
+            for (int i : arr1) {
+                System.out.print(i+",");
+            }
         }
 
 
@@ -42,6 +59,9 @@ public class ContinuousLinear {
         Continuous continuous = new Continuous();
         continuous.init();
         continuous.insertElement(2, 10);
+        continuous.log();
+        System.out.println();
+        continuous.deleteElement(2);
         continuous.log();
 
     }
