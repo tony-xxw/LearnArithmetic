@@ -1,4 +1,4 @@
-package chapter1;
+package chapter3.array;
 
 public class ContinuousLinear {
 
