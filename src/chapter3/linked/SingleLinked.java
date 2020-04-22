@@ -1,6 +1,5 @@
 package chapter3.linked;
 
-import sun.dc.pr.PRError;
 
 public class SingleLinked {
 
@@ -42,6 +41,29 @@ public class SingleLinked {
             curNode = curNode.next;
             i++;
         }
+    }
+
+    private String obtainIndexNode(int index) {
+        if (index < 0 || index > getSize()) {
+            return "不存在此节点";
+        }
+
+        Node temp = head;
+        int size = 0;
+        while (temp.next != null) {
+            if (size == index) {
+                return temp.data+"";
+            }
+            size++;
+            temp = temp.next;
+        }
+
+        if (size == getSize() && index == getSize()) {
+            //指针移动到最后一个等于链表长 并且 查询的指针数也等于链表长 证明查询的是最后一个结点 指针
+            return temp.data+"";
+        }
+
+        return "不存在此节点";
     }
 
 
@@ -86,6 +108,9 @@ public class SingleLinked {
         linked.printList();
         System.out.println();
         System.out.println(linked.getSize());
+
+
+        System.out.println("查询结点为: "+linked.obtainIndexNode(1));
 
 
     }
