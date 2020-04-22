@@ -121,5 +121,8 @@ public class SingleLinked {
         System.out.println("查询结点为: "+linked.obtainIndexNode(1));
 
 
+        System.out.println("查询结点为: "+linked.obtainIndexNode(1));
+
+
     }
 }
