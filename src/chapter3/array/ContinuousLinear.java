@@ -30,6 +30,21 @@ public class ContinuousLinear {
             }
         }
 
+        private void insert(int i,int value){
+            if (i<0 || i>arr1.length-1){
+                return;
+            }else {
+                for (int i1 = arr1.length-1; i <=i1; i1--) {
+                    if (i1==i){
+                        arr1[i] = value;
+                        break;
+                    }else {
+                        arr1[i1] = arr1[i1-1];
+                    }
+                }
+            }
+        }
+
         private void deleteElement(int i){
             if (i<0|| i> arr1.length){
                 return;

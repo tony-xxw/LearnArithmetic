@@ -1,6 +1,11 @@
 package chapter3.linked;
 
 
+import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
+
+/**
+ * 单链表
+ */
 public class SingleLinked {
 
 
@@ -20,8 +25,18 @@ public class SingleLinked {
             temp = temp.next;
         }
         temp.next = newNode;
-
     }
+
+    private void addNodeFirst(int content){
+        Node newNode = new Node(content);
+        if (head==null){
+            head= newNode;
+            return;
+        }
+
+        newNode.next = head;
+        head = newNode;
+     }
 
     private void deleteIndexNode(int index) {
         if (index < 0 || index > getSize()) {
@@ -100,16 +115,11 @@ public class SingleLinked {
         linked.addNode(6);
         linked.addNode(7);
         linked.printList();
-
-        System.out.println();
-        System.out.println(linked.getSize());
+        System.out.println("size: "+linked.getSize());
 
         linked.deleteIndexNode(6);
         linked.printList();
-        System.out.println();
-        System.out.println(linked.getSize());
-
-
+        System.out.println("size: "+linked.getSize());
         System.out.println("查询结点为: "+linked.obtainIndexNode(1));
 
 
