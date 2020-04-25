@@ -59,11 +59,10 @@ public class CycleLinked {
             head = new Node(content, head);
             tail = head;
         } else {
-            Node newNode = new Node(content);
-            newNode.next = head;
-            head = newNode;
-            tail.next = head;
-
+           Node node = new Node(content);
+           node.next = head;
+           tail.next = node;
+           head = node;
         }
         size++;
 
