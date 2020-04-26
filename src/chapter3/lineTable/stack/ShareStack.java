@@ -14,6 +14,7 @@ public class ShareStack {
 
     private void push(String element,int stackNumber){
         if (top1+1== top2){
+            System.out.println("栈满了");
             return;
         }
         if (stackNumber==1){
@@ -58,6 +59,17 @@ public class ShareStack {
     public static void main(String[] args) {
         ShareStack shareStack = new ShareStack();
         shareStack.push("a",1);
+        shareStack.push("b",1);
+        shareStack.push("b",1);
+        shareStack.push("b",1);
+        shareStack.push("b",1);
+        shareStack.push("b",1);
+        shareStack.push("b",1);
+        shareStack.push("b",1);
+        shareStack.push("b",1);
+        shareStack.push("b",1);
+        shareStack.push("b",1);
+        shareStack.push("b",1);
         shareStack.push("b",1);
         shareStack.push("c",2);
         System.out.println(shareStack.peek(1));
