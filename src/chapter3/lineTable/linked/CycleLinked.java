@@ -1,4 +1,4 @@
-package chapter3.linked;
+package chapter3.lineTable.linked;
 
 /**
  * 循环链表
@@ -30,13 +30,6 @@ public class CycleLinked {
         return size == 0;
     }
 
-    private void deleteNode() {
-
-    }
-
-    private void obtainNode() {
-
-    }
 
     //从尾部添加
     private void addFooterNode(String content) {
@@ -59,12 +52,46 @@ public class CycleLinked {
             head = new Node(content, head);
             tail = head;
         } else {
-           Node node = new Node(content);
-           node.next = head;
-           tail.next = node;
-           head = node;
+            Node node = new Node(content);
+            tail.next = node;
+            node.next = head;
+            tail = node;
         }
         size++;
+    }
+
+    private void addIndext(int index, String content) {
+        int cur = 1;
+        Node node = new Node(content);
+        if (index < 0 || index > getSize()) {
+            return;
+        }
+        Node pre = head;
+        Node curN = pre.next;
+        while (!curN.content.equals("head")) {
+            if (cur == index) {
+                pre.next = node;
+                node.next = curN;
+                break;
+            }
+            pre = curN;
+            curN = curN.next;
+            cur++;
+        }
+    }
+
+    private void deletNode(String content) {
+        Node pre = head;
+        Node cur = pre.next;
+        while (!cur.content.equals("head")) {
+            if (content.equals(cur.content)) {
+                pre.next = cur.next;
+                break;
+            }
+            pre = cur;
+            cur = cur.next;
+        }
+
 
     }
 
@@ -101,5 +128,17 @@ public class CycleLinked {
 //        System.out.println("size: " + cycleLinked.size);
 
         cycleLinked.logNode();
+
+        cycleLinked.addIndext(1, "北京");
+        cycleLinked.addIndext(1, "长沙");
+        cycleLinked.logNode();
+
+        System.out.println("------------------------------------");
+
+        cycleLinked.deletNode("长沙");
+        cycleLinked.logNode();
+        cycleLinked.deletNode("杭州");
+        cycleLinked.logNode();
+
     }
 }

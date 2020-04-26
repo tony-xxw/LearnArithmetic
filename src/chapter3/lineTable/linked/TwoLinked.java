@@ -1,4 +1,4 @@
-package chapter3.linked;
+package chapter3.lineTable.linked;
 
 public class TwoLinked {
     private int size;
