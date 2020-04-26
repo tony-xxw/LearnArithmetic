@@ -1,7 +1,5 @@
-package chapter3.linked;
+package chapter3.lineTable.linked;
 
-
-import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 
 /**
  * 单链表

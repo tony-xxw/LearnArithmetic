@@ -1,4 +1,4 @@
-package chapter3.linked;
+package chapter3.lineTable.linked;
 
 /**
  * 数据结构-链表-结点

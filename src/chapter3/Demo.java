@@ -1,7 +1,6 @@
 package chapter3;
 
-import chapter3.linked.Node;
-import chapter3.linked.SingleLinked;
+import chapter3.lineTable.linked.Node;
 
 public class Demo {
 

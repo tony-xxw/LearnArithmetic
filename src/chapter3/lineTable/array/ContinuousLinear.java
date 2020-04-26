@@ -1,4 +1,4 @@
-package chapter3.array;
+package chapter3.lineTable.array;
 
 public class ContinuousLinear {
 
