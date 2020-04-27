@@ -19,12 +19,11 @@ public class LinkedStack {
 
     private void push(String content) {
         Node newNode = new Node(content);
-        if (!isEmpty()) {
-            newNode.next = top;
-        }
+        newNode.next = top;
         top = newNode;
         size++;
-        System.out.println("进栈:" + newNode.content);
+        System.out.println("进栈:" + top.content);
+
     }
 
     private void pop() {
@@ -34,15 +33,16 @@ public class LinkedStack {
             top = top.next;
             size--;
         }
-        System.out.println("出栈: " + item);
+        System.out.println("出栈:" + item);
     }
 
     private void peek() {
         String item = "";
-        if (!isEmpty()) {
-            item = top.content;
+        if (!isEmpty()){
+            item =top.content;
         }
-        System.out.println("栈顶内容为: " + item);
+        System.out.println("栈顶为: " + item);
+
     }
 
     private void size() {
