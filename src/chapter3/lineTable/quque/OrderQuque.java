@@ -68,9 +68,6 @@ public class OrderQuque {
 
         quque.pop();
         quque.pop();
-        quque.pop();
-        quque.pop();
-        quque.pop();
         quque.log();
         quque.size();
     }
