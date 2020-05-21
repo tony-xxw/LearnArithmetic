@@ -16,12 +16,14 @@ public class AnnotationsMain {
     public void say() {
 
     }
+    /**
+      @RetentionPolicy.RUNTIME 注解可以在运行中得到保留
+      @Retention(RetentionPolicy.SOURCE) 注解只保留在源码阶段,源码执行完就会忽略
+      @Retention(RetentionPolicy.CLASS) 注解只会保留在编译阶段, 编译结束就会忽略
+     */
+    @Retention(RetentionPolicy.RUNTIME)
 
-    @Retention(RetentionPolicy.RUNTIME) //注解可以在运行中得到保留
 /**
- @Retention(RetentionPolicy.SOURCE) //注解只保留在源码阶段,源码执行完就会忽略
- @Retention(RetentionPolicy.CLASS) //注解只会保留在编译阶段, 编译结束就会忽略
-
  @Documented  将注解中的元素包含到javadoc中
 
  @Target 指定注解运用的地方
