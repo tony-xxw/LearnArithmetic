@@ -1,5 +1,6 @@
 package dagger.annotations;
 
+import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
@@ -34,6 +35,8 @@ public class AnnotationsMain {
  ElementType.TYPE 可以给一个类型进行注解，比如类、接口、枚举
 
  @Inherited 当父类被Inherited注解过,子类又无其他注解,则子类继承父类注解
+
+ @Repeatable 1.8加入 可重复注解
  */
     public @interface TestAnnotation {
 
@@ -42,4 +45,11 @@ public class AnnotationsMain {
         String msg() default "hello annotation";
 
     }
+
+    @Inherited
+    @Retention(RetentionPolicy.RUNTIME)
+    @interface Parent{}
+
+
+
 }
