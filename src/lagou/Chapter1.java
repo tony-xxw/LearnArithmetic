@@ -2,7 +2,6 @@ package lagou;
 
 public class Chapter1 {
 
-
     public static void sample1() {
         int[] a = {1, 3, 4};
         int maxVal = -1;
@@ -22,24 +21,21 @@ public class Chapter1 {
         int[] a = {1, 3, 4, 3, 4, 1, 3};
         int valMax = -1;
         int timeMax = 0;
-        int timeTemp = 0;
+        int timeTemp;
 
-        for (int i = 0; i < a.length; i++) {
+        for (int value : a) {
             timeTemp = 0;
-
-            for (int i1 = 0; i1 < a.length; i1++) {
-                if (a[i] == a[i1]) {
+            for (int i : a) {
+                if (value == i) {
                     timeTemp += 1;
                     if (timeTemp > timeMax) {
                         timeMax = timeTemp;
-                        valMax = a[i];
+                        valMax = value;
                     }
                 }
             }
         }
-
         System.out.println("重复最多的数是:  " + valMax);
-
     }
 
     public static void main(String[] args) {
