@@ -64,13 +64,12 @@ public class CircleArrayQueueDemo {
 
         //队列是否满
         public boolean isFull() {
-            return (mRear + 1) % (mMaxSize) == mFront;
+            return (mRear + 1) % mMaxSize == mFront;
         }
 
         //队列是否为空
         public boolean isEmpty() {
-
-            return mFront == mRear;
+            return mRear == mFront;
         }
 
         public void addQueue(int n) {
@@ -78,9 +77,9 @@ public class CircleArrayQueueDemo {
                 System.out.println("队列已满");
                 return;
             }
-            System.out.println("mRear" +mRear);
             queue[mRear] = n;
-            mRear = (mRear + 1) % (mMaxSize);
+            mRear = (mRear + 1) % mMaxSize;
+
         }
 
         public int obtainQueue() {
@@ -88,7 +87,7 @@ public class CircleArrayQueueDemo {
                 throw new RuntimeException("队列为空,请先添加数据");
             }
             int value = queue[mFront];
-            mFront = (mFront + 1) % (mMaxSize);
+            mFront = (mFront + 1) % mMaxSize;
             return value;
         }
 
@@ -98,13 +97,13 @@ public class CircleArrayQueueDemo {
                 return;
             }
             for (int i = mFront; i < mFront + Size(); i++) {
-                System.out.printf("queue[%d]=%d\n", i % (mMaxSize), queue[i % (mMaxSize)]);
+                System.out.printf("queue[%d]=%d\n", i % mMaxSize, queue[i % mMaxSize]);
             }
 
         }
 
         public int Size() {
-            return ((mRear + (mMaxSize)) - mFront) % (mMaxSize);
+            return ((mRear + mMaxSize) - mFront) % mMaxSize;
         }
 
         //获取头部
