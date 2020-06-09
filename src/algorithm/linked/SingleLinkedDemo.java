@@ -1,5 +1,7 @@
 package algorithm.linked;
 
+import java.util.Stack;
+
 public class SingleLinkedDemo {
 
     public static void main(String[] args) {
@@ -32,130 +34,26 @@ public class SingleLinkedDemo {
         singleLinked.addOrderNode(new Node(2, "武松", "行者"));
 
         singleLinked.list();
+        System.out.println("链表节点个数");
+        System.out.println(singleLinked.getSize());
+        System.out.println("倒数第K个结点");
+        singleLinked.bottomIndex(1);
+        System.out.println();
+        System.out.println("链表反转");
+        singleLinked.reverse();
+        singleLinked.list();
+        System.out.println("逆向打印");
+        singleLinked.reverseLog();
+        System.out.println("合并两个单链表");
 
+        SingleLinked singleLinked1 = new SingleLinked();
+        singleLinked1.addNode(new Node(5, "Wynne", "哈哈哈"));
+        singleLinked1.addNode(new Node(6, "XXW", "哈哈哈"));
+        singleLinked1.addNode(new Node(7, "向鲜汶", "嘻嘻嘻"));
 
-    }
-
-    static class SingleLinked {
-        private Node head = new Node(0, "", "");
-
-
-        void addNode(Node newNode) {
-
-            if (newNode == null) {
-                System.out.println("添加的结点不能为空");
-                return;
-            }
-            Node temp = head;
-            while (temp.next != null) {
-                temp = temp.next;
-            }
-            temp.next = newNode;
-        }
-
-        void deleteNode(Node node) {
-            if (node == null) {
-                System.out.println("添加的结点不能为空");
-                return;
-            }
-
-            if (head.next == null) {
-                System.out.println("链表不能为空");
-                return;
-            }
-
-            Node temp = head;
-            while (temp.next != null) {
-                if (temp.next.no == node.no) {
-                    //要删除的结点
-                    temp.next = temp.next.next;
-                } else {
-                    temp = temp.next;
-                }
-            }
-        }
-
-        void updateNode(Node node) {
-            if (node == null) {
-                System.out.println("添加的结点不能为空");
-                return;
-            }
-
-            if (head.next == null) {
-                System.out.println("链表不能为空");
-                return;
-            }
-            Node temp = head;
-            while (temp.next != null) {
-                if (temp.next.no == node.no) {
-                    temp.next.name = node.name;
-                    temp.next.nikeName = node.nikeName;
-                }
-                temp = temp.next;
-            }
-
-        }
-
-        void addOrderNode(Node node) {
-            if (node == null) {
-                System.out.println("添加的结点不能为空");
-                return;
-            }
-
-            Node temp = head;
-            boolean isJoin = false;
-            while (temp.next != null) {
-                //当前结点小于 加入结点
-//                if (temp.next.no < node.no) {
-//                    temp = temp.next;
-//                } else {
-//                    isJoin = true;
-//                    break;
-//                }
-                if (temp.next.no > node.no) {
-                    break;
-                } else if (temp.next.no == node.no) {
-                    isJoin = true;
-                    break;
-                }
-                temp = temp.next;
-            }
-            if (isJoin) {
-                System.out.println("当前英雄已在排名，无需反复添加");
-            } else {
-                //加入结点插入到当前结点前面,当前结点后移
-                node.next = temp.next;
-                temp.next = node;
-            }
-        }
-
-        void list() {
-            Node temp = head;
-            while (temp.next != null) {
-                System.out.println(temp.next);
-                temp = temp.next;
-            }
-        }
-
+        singleLinked.mergeLinkedList(singleLinked1).list();
 
     }
 
-    static class Node {
-        private String name;
-        private String nikeName;
-        private int no;
-        private Node next;
 
-
-        public Node(int no, String name, String nikeName) {
-            this.name = name;
-            this.nikeName = nikeName;
-            this.no = no;
-        }
-
-        @Override
-        public String toString() {
-            return "Node =>  no: " + no + " name: " + name + " nikeName: " + nikeName;
-        }
-    }
 }
