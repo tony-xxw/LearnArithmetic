@@ -5,6 +5,7 @@ public class Node {
     String nikeName;
     int no;
     Node next;
+    Node pre;
 
 
     public Node(int no, String name, String nikeName) {

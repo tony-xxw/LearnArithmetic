@@ -76,7 +76,7 @@ public class ArrayQueueDemo {
 
         //队列是否满
         public boolean isFull() {
-            return mRear == mMaxSize - 1;
+            return mRear + 1 == mMaxSize;
         }
 
         //队列是否为空
@@ -89,7 +89,6 @@ public class ArrayQueueDemo {
                 System.out.println("队列已满");
                 return;
             }
-
             queue[++mRear] = n;
         }
 
@@ -106,7 +105,7 @@ public class ArrayQueueDemo {
                 return;
             }
             for (int i = 0; i < queue.length; i++) {
-                System.out.printf("queue[%d]=%d\n", i, queue[i]);
+                System.out.printf("queue[%d] = %d\n", i, queue[i]);
             }
         }
 
