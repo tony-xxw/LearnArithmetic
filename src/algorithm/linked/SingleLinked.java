@@ -3,7 +3,7 @@ package algorithm.linked;
 import java.util.Stack;
 
 public class SingleLinked {
-    private Node head = new Node(0, "", "");
+    public Node head = new Node(0, "", "");
     private int size = 0;
 
     public String getSize() {
