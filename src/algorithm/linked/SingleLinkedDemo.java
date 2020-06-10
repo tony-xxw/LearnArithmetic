@@ -13,10 +13,10 @@ public class SingleLinkedDemo {
     static void doubleLinked() {
         DoubleLinked singleLinked = new DoubleLinked();
         System.out.println("双向链表新增");
-        singleLinked.addNode(new Node(1, "林冲", "豹子头"));
-        singleLinked.addNode(new Node(2, "宋江", "及时雨"));
-        singleLinked.addNode(new Node(3, "鲁智深", "花和尚"));
-        singleLinked.addNode(new Node(4, "武松", "行者"));
+        singleLinked.addOrderNode(new Node(1, "林冲", "豹子头"));
+        singleLinked.addOrderNode(new Node(3, "宋江", "及时雨"));
+        singleLinked.addOrderNode(new Node(2, "鲁智深", "花和尚"));
+        singleLinked.addOrderNode(new Node(4, "武松", "行者"));
         singleLinked.list();
 
         System.out.println("双向链表修改");
