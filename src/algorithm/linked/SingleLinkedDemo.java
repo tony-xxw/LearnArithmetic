@@ -1,12 +1,18 @@
 package algorithm.linked;
 
-import java.util.Stack;
-
 public class SingleLinkedDemo {
 
     public static void main(String[] args) {
 
-        doubleLinked();
+        JosephSample();
+    }
+
+    static void JosephSample() {
+        JosephLinkedList josephLinkedList = new JosephLinkedList();
+        josephLinkedList.addNode(5);
+
+        josephLinkedList.list();
+        josephLinkedList.start(1, 2, 5);
     }
 
 
