@@ -47,34 +47,28 @@ public class Maze {
      * @return
      */
     public static boolean setWay(int[][] map, int i, int j) {
-        //表示找到了出口
         if (map[6][5] == 2) {
             return true;
         } else {
             if (map[i][j] == 0) {
+                //走过了 记录为2
                 map[i][j] = 2;
-                //找球策略 下 右 上 左
                 if (setWay(map, i + 1, j)) {
-                    //下
                     return true;
                 } else if (setWay(map, i, j + 1)) {
-                    //右
                     return true;
                 } else if (setWay(map, i - 1, j)) {
-                    //上
                     return true;
                 } else if (setWay(map, i, j - 1)) {
-                    //左
                     return true;
                 } else {
-                    //此路不通
                     map[i][j] = 3;
+                    System.out.println("此路不通");
                     return false;
                 }
             } else {
-                return false; //可能遇到墙 1 可能走过2 可能走不通3
+                return false;
             }
         }
-
     }
 }
