@@ -6,69 +6,71 @@ package algorithm.recursion;
 public class Maze {
 
     public static void main(String[] args) {
-        int[][] maze = new int[8][7];
-
-        for (int i = 0; i < 7; i++) {
-            maze[0][i] = 1;
-            maze[7][i] = 1;
-        }
-
-        for (int i = 0; i < 8; i++) {
-            maze[i][0] = 1;
-            maze[i][6] = 1;
-        }
-        //打印迷宫
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 7; j++) {
-                System.out.print(maze[i][j]);
-            }
-            System.out.println();
-        }
-
+        Maze mazeObj = new Maze();
+        //创建一个8x8的迷宫
+        int[][] maze = mazeObj.createMaze();
+        //设置障碍
         maze[3][1] = 1;
         maze[3][2] = 1;
-
-
-        setWay(maze, 1, 1);
-        System.out.println("找球");
-        //打印迷宫
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 7; j++) {
-                System.out.print(maze[i][j]);
-            }
-            System.out.println();
-        }
+        mazeObj.printMaze(maze);
+        mazeObj.setWay(maze, 1, 1);
+        System.out.println("迷宫路线");
+        mazeObj.printMaze(maze);
     }
 
-    /**
-     * @param map
-     * @param i
-     * @param j
-     * @return
-     */
-    public static boolean setWay(int[][] map, int i, int j) {
-        if (map[6][5] == 2) {
+    public boolean setWay(int[][] maze, int i, int j) {
+        if (maze[5][6] == 2) {
+            //到达目标点
             return true;
         } else {
-            if (map[i][j] == 0) {
-                //走过了 记录为2
-                map[i][j] = 2;
-                if (setWay(map, i + 1, j)) {
+            if (maze[i][j] == 0) {
+                //表示可以走这条路
+                maze[i][j] = 2;
+                //2表示走过
+                //走的方向为下,右,上,左
+                if (setWay(maze, i + 1, j)) {
                     return true;
-                } else if (setWay(map, i, j + 1)) {
+                } else if (setWay(maze, i, j + 1)) {
                     return true;
-                } else if (setWay(map, i - 1, j)) {
+                } else if (setWay(maze, i - 1, j)) {
                     return true;
-                } else if (setWay(map, i, j - 1)) {
+                } else if (setWay(maze, i, j - 1)) {
                     return true;
                 } else {
-                    map[i][j] = 3;
-                    System.out.println("此路不通");
+                    //此路走不通
+                    maze[i][j] = 3;
                     return false;
                 }
             } else {
+                //可能走过2,可能是墙1,可能不通 3
                 return false;
             }
+
+        }
+
+    }
+
+    public int[][] createMaze() {
+        int[][] maze = new int[7][8];
+        for (int i = 0; i < 8; i++) {
+            maze[0][i] = 1;
+            maze[6][i] = 1;
+        }
+        for (int i = 0; i < 7; i++) {
+            maze[i][0] = 1;
+            maze[i][7] = 1;
+        }
+        return maze;
+    }
+
+    private void printMaze(int[][] maze) {
+
+        for (int[] ints : maze) {
+            for (int anInt : ints) {
+                System.out.printf("" + anInt);
+            }
+            System.out.println();
         }
     }
+
 }

@@ -18,24 +18,25 @@ public class EightQueen {
 
     }
 
-    public void check(int n) {
+    private void check(int n) {
         if (n == MAXSIZE) {
             print();
             return;
         } else {
             for (int i = 0; i < MAXSIZE; i++) {
                 queen[n] = i;
-                //当前列找摆放位置,与互斥点
+                //当前皇后是否存在冲突
                 if (judge(n)) {
-                    //当前没有互斥点,继续下一个
+                    //没有冲突开始放下一个皇后,因为一个皇后会找8个点,如果成功又会走8个,最后成功就是最终解法
                     check(n + 1);
                 }
-                //当前点存在互斥点,找同一列另外的点是否存在互斥
+                //如果当前皇后在当前坐标存在冲突,重新循环查看下一个是否冲突
             }
         }
+
     }
 
-    public boolean judge(int n) {
+    private boolean judge(int n) {
         for (int i = 0; i < n; i++) {
             //(queen[i] == queen[n]  表示为同一列 互相攻击
             //表示为在同一斜线上
@@ -46,15 +47,15 @@ public class EightQueen {
             }
         }
         return true;
-
     }
 
     private void print() {
-        count++;
-        for (int i = 0; i < MAXSIZE; i++) {
-            System.out.printf("%d", queen[i]);
+        for (int i = 0; i < queen.length; i++) {
+            System.out.print("" + queen[i]);
         }
+        count++;
         System.out.println();
     }
+
 
 }
