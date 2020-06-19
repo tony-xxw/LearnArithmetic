@@ -12,26 +12,17 @@ public class InsertSort {
 
 
     public void insertSort(int[] sort) {
-
-
-        for (int i = 1; i < sort.length; i++) {
-            int cur = sort[i];//1
-            int preIndex = i - 1; //2
-
-            while (preIndex >= 0 && sort[preIndex] > cur) {
-
-                //大于后面的数后移
-                sort[preIndex + 1] = sort[preIndex];
-                //移动后回来
-                preIndex--;
+        int temp = 0;
+        for (int i = 0; i < sort.length - 1; i++) {
+            for (int k = 0; k < sort.length - 1 - i; k++) {
+                if (sort[k] > sort[k + 1]) {
+                    temp = sort[k];
+                    sort[k] = sort[k + 1];
+                    sort[k + 1] = temp;
+                }
             }
-
-            if (preIndex + 1 != i) {
-                sort[preIndex + 1] = cur;
-            }
-
-            System.out.printf("第%d次排序", i);
-            System.out.println(Arrays.toString(sort));
+            System.out.printf("第%d次遍历", i);
+            System.out.println("数组为: " + Arrays.toString(sort));
         }
     }
 }

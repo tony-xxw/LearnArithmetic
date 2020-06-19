@@ -14,9 +14,9 @@ public class SelectSort {
         int[] select = {101, 34, 119, 1, 2, 52, 57, 99, 74};
 
         SelectSort selectSort = new SelectSort();
-        selectSort.sort(select);
+//        selectSort.sort(select);
 
-//        selectSort.test();
+        selectSort.test();
     }
 
     private void test() {
@@ -49,8 +49,8 @@ public class SelectSort {
                 array[pre] = array[i];
                 array[i] = temp;
             }
-            System.out.printf("第%d次排序", i + 1);
-            System.out.println(Arrays.toString(array));
+//            System.out.printf("第%d次排序", i + 1);
+//            System.out.println(Arrays.toString(array));
 
         }
 
