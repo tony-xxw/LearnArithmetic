@@ -14,7 +14,7 @@ public class BubbleSort {
     public static void main(String[] args) {
         BubbleSort bubbleSort = new BubbleSort();
 
-        int[] bubble = {10, 4, 3, -1,5, 7};
+        int[] bubble = {10, 4, 3, -1, 5, 7};
 
         bubbleSort.sort(bubble);
     }
@@ -44,7 +44,7 @@ public class BubbleSort {
                     bubble[j + 1] = temp;
                 }
             }
-            System.out.printf("第%d次排序", i+1);
+            System.out.printf("第%d次排序", i + 1);
             System.out.println(Arrays.toString(bubble));
 
             if (!isSort) {

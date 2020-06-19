@@ -1,6 +1,7 @@
 package algorithm.sort;
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -13,9 +14,9 @@ public class SelectSort {
         int[] select = {101, 34, 119, 1, 2, 52, 57, 99, 74};
 
         SelectSort selectSort = new SelectSort();
-//        selectSort.sort(select);
+        selectSort.sort(select);
 
-        selectSort.test();
+//        selectSort.test();
     }
 
     private void test() {
@@ -36,21 +37,20 @@ public class SelectSort {
     private void sort(int[] array) {
 
         for (int i = 0; i < array.length - 1; i++) {
-            int minIndex = i;
-            int minItem = array[i];
+            int pre = i;
+            int temp = array[i];
             for (int j = i + 1; j < array.length; j++) {
-                if (minItem > array[j]) {
-                    minIndex = j;
-                    minItem = array[j];
+                if (temp > array[j]) {
+                    temp = array[j];
+                    pre = j;
                 }
             }
-
-            if (minIndex != i) {
-                array[minIndex] = array[i];
-                array[i] = minItem;
+            if (pre != i) {
+                array[pre] = array[i];
+                array[i] = temp;
             }
-//            System.out.printf("第%d次排序", i + 1);
-//            System.out.println(Arrays.toString(array));
+            System.out.printf("第%d次排序", i + 1);
+            System.out.println(Arrays.toString(array));
 
         }
 
