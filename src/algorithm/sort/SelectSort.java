@@ -37,25 +37,26 @@ public class SelectSort {
     private void sort(int[] array) {
 
         for (int i = 0; i < array.length - 1; i++) {
-            //默认拿第一个数做对比
-            int pre = i;
-            int tem = array[i];
-            for (int j = i + 1; j < array.length; j++) {
-                //当默认值大于后面的数,就后移以为,保留最小数,当遍历完,pre会成为数组里最小的数
-                if (tem > array[j]) {
-                    tem = array[j];
-                    pre = j;
+            int temp = array[i];
+            int minIndex = i;
+
+            for (int k = i + 1; k < array.length; k++) {
+                if (temp > array[k]) {
+                    temp = array[k];
+                    minIndex = k;
                 }
             }
-            //当pre 有变动不为默认值,我们将pre最小数 放到第一位
-            if (pre != i) {
-                array[pre] = array[i];
-                array[i] = tem;
+
+            if (minIndex != i) {
+                array[minIndex] = array[i];
+                array[i] = temp;
             }
 
             System.out.printf("第%d次排序", i + 1);
             System.out.println(Arrays.toString(array));
 
         }
+
+
     }
 }
