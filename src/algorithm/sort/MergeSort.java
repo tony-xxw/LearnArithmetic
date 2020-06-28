@@ -12,66 +12,60 @@ public class MergeSort {
         int[] temp = new int[arry.length];
         MergeSort sort = new MergeSort();
 
-        sort.merge1(arry, 0, arry.length - 1, temp);
+        sort.mergeSort(arry, 0, arry.length - 1, temp);
         System.out.println("归并排序后=" + Arrays.toString(arry));
 
     }
 
 
     public void mergeSort(int[] arr, int left, int right, int[] temp) {
+        //左下标小于右下标才一直分解
         if (left < right) {
-            System.out.println("left=" + left + " right= " + right);
             int mid = (left + right) / 2;
+            //从左便开始分解
             mergeSort(arr, left, mid, temp);
             mergeSort(arr, mid + 1, right, temp);
-
+            //分到左右指针差1开始合并
             merge(arr, left, mid, right, temp);
         }
+
     }
 
     public void merge(int[] arr, int left, int mid, int right, int[] temp) {
-        System.out.println("merge array = " + Arrays.toString(arr) + " left=" + left + " mid= " + mid + " right= " + right);
-        int i = left;
-        int j = mid + 1;
-        int t = 0; //temp数组下标
+        int l = left;
+        int r = mid + 1;
+        int t = 0;
 
-        //左边与右边都未到达最后
-        while (i <= mid && j <= right) {
-            //左数组当前下标小于右数组, 则把当前左数组元素加入新的数组
-            if (arr[i] < arr[j]) {
-                temp[t] = arr[i];
-                t += 1;
-                i += 1;
+        while (l <= mid && r <= right) {
+            if (arr[l] <= arr[r]) {
+                temp[t] = arr[l];
+                l++;
+                t++;
             } else {
-                //反之右数组元素插入新的数组
-                temp[t] = arr[j];
-                t += 1;
-                j += 1;
+                temp[t] = arr[r];
+                r++;
+                t++;
             }
         }
 
-
-        //将剩余的左边元素加入到临时数组
-        while (i <= mid) {
-            temp[t] = arr[i];
-            t += 1;
-            i += 1;
+        while (l <= mid) {
+            temp[t] = arr[l];
+            t++;
+            l++;
         }
 
-        //将剩余的右边数组加入到临时数组
-        while (j <= right) {
-            temp[t] = arr[j];
-            t += 1;
-            j += 1;
+        while (r <= right) {
+            temp[t] = arr[r];
+            r++;
+            t++;
         }
-
 
         t = 0;
         int tempLeft = left;
         while (tempLeft <= right) {
             arr[tempLeft] = temp[t];
-            t += 1;
-            tempLeft += 1;
+            tempLeft++;
+            t++;
         }
 
     }
@@ -80,11 +74,11 @@ public class MergeSort {
         if (left < right) {
             int mid = (left + right) / 2;
             //左边数组开始递归排序
-            merge1(arry,left,mid,temp);
+            merge1(arry, left, mid, temp);
             //右边数组递归排序
-            merge1(arry,mid+1,right,temp);
+            merge1(arry, mid + 1, right, temp);
             //左右递归完 最后合并排序
-            mergeSort1(arry,left,mid,right,temp);
+            mergeSort1(arry, left, mid, right, temp);
         }
     }
 
