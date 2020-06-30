@@ -35,7 +35,6 @@ public class SelectSort {
 
 
     private void sort(int[] array) {
-
         for (int i = 0; i < array.length - 1; i++) {
             int temp = array[i];
             int minIndex = i;
@@ -54,9 +53,6 @@ public class SelectSort {
 
             System.out.printf("第%d次排序", i + 1);
             System.out.println(Arrays.toString(array));
-
         }
-
-
     }
 }

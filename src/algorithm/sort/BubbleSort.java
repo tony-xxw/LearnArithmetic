@@ -16,7 +16,7 @@ public class BubbleSort {
 
         int[] bubble = {10, 4, 3, -1, 5, 7};
 
-        bubbleSort.sort(bubble);
+        bubbleSort.sortExe(bubble);
     }
 
     private void test() {
@@ -56,7 +56,18 @@ public class BubbleSort {
     }
 
 
-    private void  sortExe(){
-
+    private void sortExe(int[] bubble) {
+        for (int i =0; i<bubble.length-1;i++){
+            //0-arr.length
+            for (int j = 0; j<bubble.length-1-i;j++){
+                if (bubble[j] >bubble[j+1]){
+                    int temp = bubble[j];
+                    bubble[j] = bubble[j+1];
+                    bubble[j+1] = temp;
+                }
+            }
+            System.out.printf("第%d次排序", i + 1);
+            System.out.println(Arrays.toString(bubble));
+        }
     }
 }
