@@ -13,7 +13,7 @@ public class ShellSort {
         int[] select = {101, 34, 119, 1, 2, 52, 57, 99, 74};
 
         ShellSort shellSort = new ShellSort();
-        shellSort.sortQuick(select);
+        shellSort.sortQuickMove(select);
 //        shellSort.test();
     }
 
@@ -37,6 +37,23 @@ public class ShellSort {
         }
     }
 
+    private void sortMove(int[] array) {
+        int temp = 0;
+
+        for (int gap = array.length / 2; gap > 0; gap /= 2) {
+            for (int i = gap; i < array.length - 1; i++) {
+                for (int k = i - gap; k >= 0; k -= gap) {
+                    if (array[k] > array[k + gap]) {
+                        temp = array[k];
+                        array[k] = array[k + gap];
+                        array[k + gap] = temp;
+                    }
+                }
+            }
+            System.out.println("第" + gap + "轮" + Arrays.toString(array));
+        }
+    }
+
     private void sortQuick(int[] array) {
 //        System.out.println(Arrays.toString(array));
         for (int gap = array.length / 2; gap > 0; gap /= 2) {
@@ -57,6 +74,23 @@ public class ShellSort {
                 }
             }
 //            System.out.println("第" + gap + "轮" + Arrays.toString(array));
+
+        }
+    }
+
+
+    private void sortQuickMove(int[] array) {
+        for (int gap = array.length / 2; gap > 0; gap /= 2) {
+            for (int i = gap; i < array.length; i++) {
+                int temp = array[i];
+                int tempIndex = i;
+                while (tempIndex - gap >= 0 && array[tempIndex - gap] > temp) {
+                    array[tempIndex] = array[tempIndex - gap];
+                    tempIndex -= gap;
+                }
+                array[tempIndex] = temp;
+            }
+            System.out.println("第" + gap + "轮" + Arrays.toString(array));
 
         }
     }

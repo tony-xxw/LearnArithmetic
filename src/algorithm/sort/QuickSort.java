@@ -1,6 +1,7 @@
 package algorithm.sort;
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -9,11 +10,11 @@ import java.util.Date;
 public class QuickSort {
 
     public static void main(String[] args) {
-        int[] arr = {10, 4, 8, 5, 3, 11, 2, 1};
+        int[] arr = {10, 4, 8, 5, 5, 5, 3, 11, 2, 1};
 
         QuickSort quickSort = new QuickSort();
-//        quickSort.sort(arr, 0, arr.length - 1);
-        quickSort.test();
+        quickSort.sortExe(arr, 0, arr.length - 1);
+//        quickSort.test();
     }
 
     private void test() {
@@ -71,7 +72,7 @@ public class QuickSort {
 
 
         }
-//        System.out.println("排序后的数组为: " + Arrays.toString(arr));
+        System.out.println("排序后的数组为: " + Arrays.toString(arr));
 
 
         /*
@@ -92,6 +93,55 @@ public class QuickSort {
             sort(arr, l, right);
         }
 
+    }
 
+    private void sortExe(int[] array, int left, int right) {
+        int l = left;
+        int r = right;
+        int mid = array[(left + right) / 2];
+        int temp = 0;
+
+        while (l < r) {
+            while (array[l] < mid) {
+                l++;
+            }
+
+            while (array[r] > mid) {
+                r--;
+            }
+
+            if (l >= r) {
+                break;
+            }
+
+            temp = array[l];
+            array[l] = array[r];
+            array[r] = temp;
+
+
+            if (array[l] == mid) {
+                r--;
+            }
+
+            if (array[r] == mid) {
+                l++;
+            }
+
+        }
+
+        System.out.println("排序后的数组为: " + Arrays.toString(array));
+
+        if (l == r) {
+            l++;
+            r--;
+        }
+
+        if (left < r) {
+            sortExe(array, left, r);
+        }
+
+        if (right > l) {
+            sortExe(array, l, right);
+        }
     }
 }
