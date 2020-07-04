@@ -39,24 +39,23 @@ public class SingleLinkedDemo {
     static void singleLinked() {
         SingleLinked singleLinked = new SingleLinked();
         System.out.println("新增单向链表");
-        singleLinked.addNode(new Node(1, "林冲", "豹子头"));
-        singleLinked.addNode(new Node(2, "宋江", "及时雨"));
-        singleLinked.addNode(new Node(3, "鲁智深", "花和尚"));
-        singleLinked.addNode(new Node(4, "武松", "行者"));
-        singleLinked.list();
+        singleLinked.addNodeExe(new Node(1, "林冲", "豹子头"));
+        singleLinked.addNodeExe(new Node(2, "宋江", "及时雨"));
+        singleLinked.addNodeExe(new Node(3, "鲁智深", "花和尚"));
+        singleLinked.addNodeExe(new Node(4, "武松", "行者"));
+        singleLinked.listExe();
 
         System.out.println();
         System.out.println("更新单向链表");
-        singleLinked.updateNode(new Node(2, "公孙胜", "入云龙"));
+        singleLinked.updateNodeExe(new Node(2, "公孙胜", "入云龙"));
         singleLinked.list();
 
 
+        System.out.println();
         System.out.println("删除单向链表");
         singleLinked.deleteNode(new Node(3, "鲁智深", "花和尚"));
-        System.out.println();
         singleLinked.list();
 
-        System.out.println();
 
 //        singleLinked.addOrderNode(new Node(1, "林冲", "豹子头"));
 //        singleLinked.addOrderNode(new Node(4, "宋江", "及时雨"));

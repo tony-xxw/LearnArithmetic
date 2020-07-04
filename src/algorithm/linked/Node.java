@@ -26,6 +26,6 @@ public class Node {
 
     @Override
     public String toString() {
-        return "Node =>  no: " + no + " name: " + name + " nikeName: " + nikeName;
+        return "Node =>  no: " + no + " name: " + name + "    nikeName: " + nikeName;
     }
 }

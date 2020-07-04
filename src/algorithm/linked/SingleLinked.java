@@ -24,6 +24,18 @@ public class SingleLinked {
         temp.next = newNode;
     }
 
+    void addNodeExe(Node newNode) {
+        if (newNode == null) {
+            System.out.println("添加的结点不能为空");
+            return;
+        }
+        Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        temp.next = newNode;
+    }
+
     void deleteNode(Node node) {
         if (node == null) {
             System.out.println("添加的结点不能为空");
@@ -36,9 +48,16 @@ public class SingleLinked {
         }
 
         Node temp = head;
+//        while (temp.next != null) {
+//            if (temp.next.no == node.no) {
+//                //要删除的结点
+//                temp.next = temp.next.next;
+//            } else {
+//                temp = temp.next;
+//            }
+//        }
         while (temp.next != null) {
             if (temp.next.no == node.no) {
-                //要删除的结点
                 temp.next = temp.next.next;
             } else {
                 temp = temp.next;
@@ -64,8 +83,30 @@ public class SingleLinked {
             }
             temp = temp.next;
         }
-
     }
+
+    void updateNodeExe(Node node) {
+        if (node == null) {
+            System.out.println("添加的结点不能为空");
+            return;
+        }
+
+        if (head.next == null) {
+            System.out.println("链表不能为空");
+            return;
+        }
+        Node temp = head;
+        while (temp.next != null) {
+            if (temp.no == node.no) {
+                temp.nikeName = node.nikeName;
+                temp.name = node.name;
+
+            }
+            temp = temp.next;
+
+        }
+    }
+
 
     void addOrderNode(Node node) {
         if (node == null) {
@@ -99,6 +140,14 @@ public class SingleLinked {
         Node temp = head;
         while (temp.next != null) {
             System.out.println(temp.next);
+            temp = temp.next;
+        }
+    }
+
+    void listExe() {
+        Node temp = head;
+        while (temp.next != null) {
+            System.out.println(temp);
             temp = temp.next;
         }
     }
