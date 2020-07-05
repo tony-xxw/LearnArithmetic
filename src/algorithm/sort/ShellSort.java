@@ -33,7 +33,7 @@ public class ShellSort {
                     }
                 }
             }
-//            System.out.println("第" + gap + "轮" + Arrays.toString(array));
+            System.out.println("第" + gap + "轮" + Arrays.toString(array));
         }
     }
 
