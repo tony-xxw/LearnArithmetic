@@ -7,7 +7,8 @@ public class StackDemo {
     public static void main(String[] args) {
 
 
-        testLinkedStack();
+//        testLinkedStack();
+        testArrayStack();
     }
 
 
@@ -40,19 +41,17 @@ public class StackDemo {
         stack.listStack();
         System.out.println();
 
-        System.out.printf("出栈: %d", stack.pop().no);
-        System.out.println();
-        System.out.printf("出栈: %d", stack.pop().no);
-        System.out.println();
-        System.out.printf("出栈: %d", stack.pop().no);
-        System.out.println();
-        System.out.printf("出栈: %d", stack.pop().no);
-        System.out.println();
-        System.out.printf("出栈: %d", stack.pop().no);
-        System.out.println();
-        System.out.printf("出栈: %d", stack.pop().no);
-//
+//        System.out.printf("出栈: %d", stack.pop().no);
 //        System.out.println();
-//        stack.listStack();
+//        System.out.printf("出栈: %d", stack.pop().no);
+//        System.out.println();
+//        System.out.printf("出栈: %d", stack.pop().no);
+//        System.out.println();
+//        System.out.printf("出栈: %d", stack.pop().no);
+//        System.out.println();
+//        System.out.printf("出栈: %d", stack.pop().no);
+
+//        System.out.println();
+        stack.listStack();
     }
 }

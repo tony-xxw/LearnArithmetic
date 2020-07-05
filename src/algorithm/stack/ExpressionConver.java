@@ -15,8 +15,8 @@ import static algorithm.stack.SuffixCalcultorStack.caculationResult;
  * 3.遇到操作数压入S2
  * 4.遇到运算符时,比较其与S1栈顶运算符的优先级
  * 1)如果S1为空,或者栈顶运算符为左括号(，直接运算符入栈 S1
- * 2)否则,当前运算符优先级高于栈顶运算符,将运算符压入
- * 3)否则,将S1栈顶运算符弹出压入到S2中,再回到4-1与S1中心的栈顶运算符比较
+ * 2)当前运算符优先级高于栈顶运算符,将运算符压入
+ * 3)当前运算符优先级低于等于栈顶运算符,将S1栈顶运算符弹出压入到S2中,再回到4-1与S1中心的栈顶运算符比较
  * 5.遇到括号时
  * 1)如果"("直接压入S1
  * 2)如果")" 则依次弹出S1栈顶运算符,并压入S2,直到遇到左括号为止,此时将这一对括号丢弃重复2-5,直到表达式结束
@@ -25,7 +25,7 @@ import static algorithm.stack.SuffixCalcultorStack.caculationResult;
  */
 public class ExpressionConver {
     public static void main(String[] args) {
-        String expression = "4*10+50-20";
+        String expression = "4*10+(50-20)";
         System.out.println(obtainExpressions(expression));
 
         List<String> expressions = obtainExpressions(expression);

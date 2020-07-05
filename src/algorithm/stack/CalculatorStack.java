@@ -12,7 +12,7 @@ import java.util.Stack;
  * <p>
  * 1.首先遍历表达式
  * 2.如果为数字直接压入数栈
- * 1) 需要判断多位数
+ * 1) 需要判断是否为个位数以上
  * 3.如果扫描到是符号
  * 1)符号栈为空,直接入栈
  * 2)符号栈有符号,判断优先级
@@ -40,7 +40,7 @@ public class CalculatorStack {
             String item = expressions.get(i);
             //如果是数字 直接入栈
             if (item.charAt(0) > 47 && item.charAt(0) < 58) {
-                //多位数判断
+                //判断是否大于个位数
                 if (i == expressions.size() - 1) {
                     //为最后一个 直接压入栈
                     if (mul.isEmpty()) {
@@ -137,7 +137,7 @@ public class CalculatorStack {
                 result = DIV;
                 break;
             default:
-                System.out.println("没有符合的符号");
+                System.out.println("为数字");
                 break;
         }
         return result;

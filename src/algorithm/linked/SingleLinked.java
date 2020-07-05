@@ -135,7 +135,6 @@ public class SingleLinked {
             node.next = temp.next;
             temp.next = node;
         }
-
     }
 
     void list() {
@@ -175,6 +174,27 @@ public class SingleLinked {
         }
 
         head.next = reverse;
+    }
+
+
+    void reverseExe() {
+        if (head == null) {
+
+            System.out.println("链表为空");
+            return;
+        }
+
+        Node temp = head.next;
+        Node next;
+        Node reverse = null;
+        while (temp != null) {
+            next = temp.next;
+            temp.next = reverse;
+            reverse = temp;
+            temp = next;
+        }
+        head.next = reverse;
+
     }
 
     /**

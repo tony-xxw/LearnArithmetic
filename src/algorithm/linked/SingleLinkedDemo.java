@@ -4,15 +4,17 @@ public class SingleLinkedDemo {
 
     public static void main(String[] args) {
 
-        singleLinked();
+//        singleLinked();
+//        doubleLinked();
+        JosephSample();
     }
 
     static void JosephSample() {
         JosephLinkedList josephLinkedList = new JosephLinkedList();
-        josephLinkedList.addNode(5);
+        josephLinkedList.addNodeExe(5);
 
-        josephLinkedList.list();
-        josephLinkedList.start(1, 2, 5);
+        josephLinkedList.listExe();
+        josephLinkedList.startExe(1, 2);
     }
 
 
@@ -67,10 +69,10 @@ public class SingleLinkedDemo {
         System.out.println("链表节点个数");
         System.out.println(singleLinked.getSize());
         System.out.println("倒数第K个结点");
-        singleLinked.bottomIndex(1);
+        singleLinked.bottomIndex(3);
         System.out.println();
         System.out.println("链表反转");
-        singleLinked.reverse();
+        singleLinked.reverseExe();
         singleLinked.list();
         System.out.println("逆向打印");
         singleLinked.reverseLog();

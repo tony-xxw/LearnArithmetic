@@ -1,5 +1,7 @@
 package algorithm.recursion;
 
+import javax.swing.plaf.nimbus.AbstractRegionPainter;
+
 /**
  * 迷宫问题
  */
@@ -13,7 +15,7 @@ public class Maze {
         maze[3][1] = 1;
         maze[3][2] = 1;
         mazeObj.printMaze(maze);
-        mazeObj.setWay(maze, 1, 1);
+        mazeObj.setWayExe(maze, 1, 1);
         System.out.println("迷宫路线");
         mazeObj.printMaze(maze);
     }
@@ -45,9 +47,31 @@ public class Maze {
                 //可能走过2,可能是墙1,可能不通 3
                 return false;
             }
-
         }
+    }
 
+    private boolean setWayExe(int[][] maze, int i, int j) {
+        if (maze[5][6] == 2) {
+            return true;
+        } else {
+            if (maze[i][j] == 0) {
+                maze[i][j] = 2;
+                if (setWayExe(maze, i + 1, j)) {
+                    return true;
+                } else if (setWayExe(maze, i, j + 1)) {
+                    return true;
+                } else if (setWayExe(maze, i - 1, j)) {
+                    return true;
+                } else if (setWayExe(maze, i, j - 1)) {
+                    return true;
+                } else {
+                    maze[i][j] = 3;
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
     }
 
     public int[][] createMaze() {

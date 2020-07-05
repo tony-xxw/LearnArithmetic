@@ -17,7 +17,7 @@ public class SuffixCalcultorStack {
         System.out.println("后缀表达式遍历: " + scanExpression(expression));
 
         List<String> expressions = scanExpression(expression);
-        caculationResult(expressions);
+        System.out.println(caculationResult(expressions));
 
     }
 
