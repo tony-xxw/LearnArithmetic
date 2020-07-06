@@ -76,6 +76,93 @@ public class BinaryNode {
 
     }
 
+
+    /**
+     * 前序查找
+     */
+    public BinaryNode seekPreOrder(int no) {
+
+        System.out.println("前序查找次数");
+        if (this.id == no) {
+            return this;
+        }
+        BinaryNode temp = null;
+
+
+        if (getPreNode() != null) {
+            temp = getPreNode().seekPreOrder(no);
+        }
+
+        if (temp != null) {
+            return temp;
+        }
+
+        if (getNextNode() != null) {
+            temp = getNextNode().seekPreOrder(no);
+        }
+        return temp;
+    }
+
+    /**
+     * 中序遍历
+     */
+    public BinaryNode seekIndexOrder(int no) {
+
+
+        BinaryNode temp = null;
+
+
+        if (getPreNode() != null) {
+            temp = getPreNode().seekIndexOrder(no);
+        }
+
+        if (temp != null) {
+            return temp;
+        }
+
+        System.out.println("中序查找次数");
+        if (this.id == no) {
+            return this;
+        }
+
+
+        if (getNextNode() != null) {
+            temp = getNextNode().seekIndexOrder(no);
+        }
+        return temp;
+    }
+
+    /**
+     * 后序遍历
+     */
+    public BinaryNode seekLastOrder(int no) {
+        BinaryNode temp = null;
+
+
+        if (getPreNode() != null) {
+            temp = getPreNode().seekLastOrder(no);
+        }
+
+        if (temp != null) {
+            return temp;
+        }
+
+
+        if (getNextNode() != null) {
+            temp = getNextNode().seekLastOrder(no);
+        }
+        if (temp != null)
+            return temp;
+
+        System.out.println("后序查找次数");
+        if (this.id == no) {
+            return this;
+        }
+
+        return null;
+
+    }
+
     @Override
     public String toString() {
         return "BinaryNode{" +

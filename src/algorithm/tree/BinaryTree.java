@@ -28,6 +28,13 @@ public class BinaryTree {
         binaryTree.findIndexOrder();
         System.out.println("后序遍历"); // 2,5,4,3,1
         binaryTree.findLastOrder();
+
+        System.out.println("前序查找");
+        System.out.println(binaryTree.seekPreOrder(5));
+        System.out.println("中序查找");
+        System.out.println(binaryTree.seekIndexOrder(5));
+        System.out.println("后序查找");
+        System.out.println(binaryTree.seekLastOrder(5));
     }
 
     void setRoot(BinaryNode node) {
@@ -65,6 +72,41 @@ public class BinaryTree {
             return;
         }
         root.findLastOrder();
+
+    }
+
+
+    /**
+     * 前序查找
+     */
+    BinaryNode seekPreOrder(int no) {
+        if (root == null) {
+            System.out.println("数为空");
+            return null;
+        }
+        return root.seekPreOrder(no);
+    }
+
+    /**
+     * 中序查找
+     */
+    BinaryNode seekIndexOrder(int no) {
+        if (root == null) {
+            System.out.println("数为空");
+            return null;
+        }
+        return root.seekIndexOrder(no);
+    }
+
+    /**
+     * 后序查找
+     */
+    BinaryNode seekLastOrder(int no) {
+        if (root == null) {
+            System.out.println("数为空");
+            return null;
+        }
+        return root.seekLastOrder(no);
 
     }
 }
