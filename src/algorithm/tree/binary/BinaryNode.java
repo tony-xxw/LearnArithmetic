@@ -1,8 +1,8 @@
 package algorithm.tree.binary;
 
 public class BinaryNode {
-    private String name;
-    private int id;
+    public String name;
+    public int id;
     private BinaryNode preNode;
     private BinaryNode nextNode;
 
@@ -160,6 +160,31 @@ public class BinaryNode {
         }
 
         return null;
+
+    }
+
+    public void delOrder(int no) {
+
+        if (getPreNode() != null && getPreNode().id == no) {
+            setPreNode(null);
+            return;
+        }
+
+        if (getPreNode() != null) {
+            getPreNode().delOrder(no);
+        }
+
+
+        if (getNextNode() != null && getNextNode().id == no) {
+            setNextNode(null);
+            return;
+        }
+
+        if (getNextNode() != null) {
+            getNextNode().delOrder(no);
+        }
+
+
 
     }
 
