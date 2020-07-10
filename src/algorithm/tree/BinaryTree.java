@@ -28,23 +28,41 @@ public class BinaryTree {
 //        binaryTree.findIndexOrder();
 //        System.out.println("后序遍历"); // 2,5,4,3,1
 //        binaryTree.findLastOrder();
-//
+
 //        System.out.println("前序查找");
 //        System.out.println(binaryTree.seekPreOrder(5));
 //        System.out.println("中序查找");
 //        System.out.println(binaryTree.seekIndexOrder(5));
 //        System.out.println("后序查找");
 //        System.out.println(binaryTree.seekLastOrder(5));
-        System.out.println("删除前遍历");
-        binaryTree.findPreOrder();
-        binaryTree.delOrder(2);
-        System.out.println("删除后遍历");
-        binaryTree.findPreOrder();
+//        System.out.println("删除前遍历");
+//        binaryTree.findPreOrder();
+//        binaryTree.delOrder(2);
+//        System.out.println("删除后遍历");
+//        binaryTree.findPreOrder();
+
+//        System.out.println("前序遍历");  //1,2,3,5,4
+//        binaryTree.findPreOrder();
+        binaryTree.clubsTree();
+        System.out.println(root3.getPreNode());
+        System.out.println(root4.getNextNode());
+
+
+
     }
 
     void setRoot(BinaryNode node) {
         root = node;
     }
+
+    void clubsTree() {
+        if (root == null) {
+            System.out.println("数为空");
+            return;
+        }
+        root.cluesTree(root);
+    }
+
 
     /**
      * 前序遍历
@@ -127,7 +145,7 @@ public class BinaryTree {
 
         if (root.id == no) {
             root = null;
-        }else {
+        } else {
             root.delOrder(no);
         }
 

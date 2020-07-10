@@ -6,6 +6,10 @@ public class BinaryNode {
     private BinaryNode preNode;
     private BinaryNode nextNode;
 
+    private BinaryNode pre;
+    private int preType = 0;
+    private int rightType = 0;
+
     public BinaryNode(String name, int id) {
         this.name = name;
         this.id = id;
@@ -82,10 +86,11 @@ public class BinaryNode {
      */
     public BinaryNode seekPreOrder(int no) {
 
-        System.out.println("前序查找次数");
+
         if (this.id == no) {
             return this;
         }
+        System.out.println("前序查找次数");
         BinaryNode temp = null;
 
 
@@ -120,10 +125,10 @@ public class BinaryNode {
             return temp;
         }
 
-        System.out.println("中序查找次数");
         if (this.id == no) {
             return this;
         }
+        System.out.println("中序查找次数");
 
 
         if (getNextNode() != null) {
@@ -154,20 +159,27 @@ public class BinaryNode {
         if (temp != null)
             return temp;
 
-        System.out.println("后序查找次数");
         if (this.id == no) {
             return this;
         }
+        System.out.println("后序查找次数");
+
 
         return null;
 
     }
 
+    /**
+     * 删除节点
+     *
+     * @param no
+     */
     public void delOrder(int no) {
 
         if (getPreNode() != null && getPreNode().id == no) {
             setPreNode(null);
             return;
+
         }
 
         if (getPreNode() != null) {
@@ -184,9 +196,36 @@ public class BinaryNode {
             getNextNode().delOrder(no);
         }
 
+    }
+
+    /**
+     * 二叉树线索化
+     *
+     * @return
+     */
+    public void cluesTree(BinaryNode root) {
+        if (root == null) {
+            return;
+        }
+        cluesTree(root.getPreNode());
+
+        //设置前驱结点
+        if (root.getPreNode() == null) {
+            root.setPreNode(pre);
+            root.setPreType(1);
+        }
+
+        //设置后驱结点
+        if (pre != null && pre.getNextNode() == null) {
+            pre.setNextNode(root);
+            pre.setRightType(1);
+        }
+        pre = root;
+        cluesTree(root.getNextNode());
 
 
     }
+
 
     @Override
     public String toString() {
@@ -194,5 +233,21 @@ public class BinaryNode {
                 "name='" + name + '\'' +
                 ", id=" + id +
                 '}';
+    }
+
+    public int getPreType() {
+        return preType;
+    }
+
+    public void setPreType(int preType) {
+        this.preType = preType;
+    }
+
+    public int getRightType() {
+        return rightType;
+    }
+
+    public void setRightType(int rightType) {
+        this.rightType = rightType;
     }
 }
