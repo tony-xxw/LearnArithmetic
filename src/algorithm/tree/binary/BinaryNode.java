@@ -199,7 +199,7 @@ public class BinaryNode {
     }
 
     /**
-     * 二叉树线索化
+     * 二叉树中序线索化
      *
      * @return
      */
@@ -214,7 +214,6 @@ public class BinaryNode {
             root.setPreNode(pre);
             root.setPreType(1);
         }
-
         //设置后驱结点
         if (pre != null && pre.getNextNode() == null) {
             pre.setNextNode(root);
@@ -222,7 +221,27 @@ public class BinaryNode {
         }
         pre = root;
         cluesTree(root.getNextNode());
+    }
 
+    public void cluesPreTree(BinaryNode root) {
+        if (root == null) return;
+
+        pre = root;
+
+        if (root.getPreNode() == null) {
+            root.setPreNode(pre);
+            root.setPreType(1);
+        }
+
+        if (pre != null && pre.getNextNode() == null) {
+            pre.setNextNode(root);
+            pre.setRightType(1);
+        }
+
+        cluesPreTree(root.getPreNode());
+
+
+        cluesPreTree(root.getNextNode());
 
     }
 

@@ -41,15 +41,28 @@ public class BinaryTree {
 //        System.out.println("删除后遍历");
 //        binaryTree.findPreOrder();
 
-//        System.out.println("前序遍历");  //1,2,3,5,4
-//        binaryTree.findPreOrder();
+//        System.out.println("中序遍历"); // 2,1,5,3,4
+//        binaryTree.findIndexOrder();
         binaryTree.clubsTree();
-        System.out.println(root3.getPreNode());
-        System.out.println(root4.getNextNode());
-
-
-
+//        System.out.println("next 2");
+//        System.out.println(root1.getNextNode());
+//        System.out.println("pre 1");
+//        System.out.println(root.getPreNode());
+//        System.out.println("pre 5");
+//        System.out.println(root4.getPreNode());
+//        System.out.println("next 5");
+//        System.out.println(root4.getNextNode());
+//        System.out.println("pre 3");
+//        System.out.println(root3.getPreNode());
+//        System.out.println("next 3");
+//        System.out.println(root3.getNextNode());
+//        System.out.println("pre 4");
+//        System.out.println(root3.getPreNode());
+//        System.out.println("next 4");
+//        System.out.println(root3.getNextNode());
+        binaryTree.clubsTraverse();
     }
+
 
     void setRoot(BinaryNode node) {
         root = node;
@@ -61,6 +74,27 @@ public class BinaryTree {
             return;
         }
         root.cluesTree(root);
+
+    }
+
+    void clubsTraverse() {
+
+        while (root != null) {
+            //如果没有线索化一直遍历
+            while (root.getPreType() == 0) {
+                root = root.getPreNode();
+            }
+            //找到type=1的节点
+            System.out.println(root);
+
+            while (root.getRightType() == 1) {
+                root = root.getNextNode();
+                System.out.println(root);
+            }
+
+            root = root.getNextNode();
+        }
+
     }
 
 
