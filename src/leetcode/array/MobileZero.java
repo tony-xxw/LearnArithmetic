@@ -81,5 +81,24 @@ public class MobileZero {
         }
 
         System.out.println(Arrays.toString(temp2));
+
+        deliberately();
+    }
+
+    private static void deliberately() {
+        int temp[] = new int[]{1, 0, 0, 3, 12};
+
+        int j = 0;
+        for (int i = 0; i < temp.length; i++) {
+            if (temp[i] != 0) {
+                if (i != j) {
+                    temp[j] = temp[i];
+                    temp[i] = 0;
+                }
+                j++;
+
+            }
+        }
+        System.out.println("复习: " + Arrays.toString(temp));
     }
 }
