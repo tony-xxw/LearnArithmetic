@@ -3,17 +3,17 @@ package leetcode.array;
 public class ClimbLadder {
     public static void main(String[] args) {
         for (int i = 1; i <= 10; i++) {
-            int num = climbStairs1(i);
+            int num = climbStairs(i);
             System.out.println(i + "----------" + num);
         }
     }
 
     public static int climbStairs(int n) {
-        if (n == 1 || n == 2) {
-            return n;
-        } else {
-            return climbStairs(n - 1) + climbStairs(n - 2);
-        }
+       if (n==1 || n==2){
+           return  n;
+       }else {
+           return climbStairs(n-1) + climbStairs(n-2);
+       }
     }
 
     public static int climbStairs1(int n) {

@@ -15,7 +15,7 @@ public class ContainerWater {
 //        System.out.println(fetchMaxRange(container));
         //由于水面面积等于 底长* 板长, 如果左右指针的新短板都无法大于旧短板,则面基比小于旧面基
         System.out.println("解法2 双指针");
-        System.out.println(deliberately(container));
+        System.out.println(deliberately1(container));
     }
 
     private static int fetchMaxRange2(int[] array) {
@@ -43,10 +43,6 @@ public class ContainerWater {
         return max;
     }
 
-    private static int calculateRange(int i, int j, int[] array) {
-        // 长 等于 j -i , 高度要取小值(因为不能有斜容器)
-        return (j - i) * Math.min(array[i], array[j]);
-    }
 
     private static int deliberately(int[] n) {
         int max = 0;
@@ -62,5 +58,23 @@ public class ContainerWater {
                     Math.max(max, calculateRange(l, r--, n));
         }
         return max;
+    }
+
+    private static int deliberately1(int[] n) {
+        if (n.length == 0) return -1;
+        int max = 0;
+        int l = 0;
+        int right = n.length - 1;
+
+        while (l < right) {
+            max = n[l] < n[right] ? Math.max(max, calculateRange(l++, right, n)) : Math.max(max, calculateRange(l, right--, n));
+        }
+        return max;
+    }
+
+
+    private static int calculateRange(int i, int j, int[] array) {
+        // 长 等于 j -i , 高度要取小值(因为不能有斜容器)
+        return (j - i) * Math.min(array[i], array[j]);
     }
 }

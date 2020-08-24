@@ -1,6 +1,7 @@
 package leetcode.array;
 
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -19,6 +20,10 @@ import java.util.List;
  */
 public class MobileZero {
     public static void main(String[] args) {
+        deliberately1();
+    }
+
+    private static void explain() {
 //        暴力解法
         System.out.println("解法一 暴力解决");
         Integer temp[] = new Integer[]{1, 0, 0, 3, 12};
@@ -100,5 +105,41 @@ public class MobileZero {
             }
         }
         System.out.println("复习: " + Arrays.toString(temp));
+    }
+
+    private static void deliberately1() {
+        int temp[] = new int[]{0, 1, 0, 3, 12};
+
+        /**
+         * 1.指针法
+         * 思路
+         * 创建一个新数组,创建一个记录增加次数的遍历count ,遍历原数组. 当数组数组元素不为0的时候,添加元素进新数组.并累加count
+         * 遍历结束后 拿原始数组长度 - count 获取需要补0的个数,然后添加进新数组既可
+         *
+         * 时间复杂度 f(o) = n
+         * 空间复杂度 f(o) = n
+         *
+         * 2. 一次循环指针法
+         * 创建一个指针j, 遍历元素,当元素不为0, 并且当前元素指针不相等,
+         * 如果当前元素不为0,但是指针j相等,则只需累加J,如果不相等,则当前元素 添加到指针位置,j再累加即可
+         * 时间复杂度 f(o) = n
+         * 空间复杂度 f(o) = n
+         *
+         *
+         */
+        int j = 0;
+        for (int i = 0; i < temp.length; i++) {
+            if (temp[i] != 0) {
+                if (i != j) {
+                    temp[j] = temp[i];
+                    temp[i] = 0;
+                }
+                j++;
+
+            }
+        }
+        System.out.println("结果为: " + Arrays.toString(temp));
+
+
     }
 }
