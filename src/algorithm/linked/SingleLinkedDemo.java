@@ -4,9 +4,9 @@ public class SingleLinkedDemo {
 
     public static void main(String[] args) {
 
-//        singleLinked();
+        singleLinked();
 //        doubleLinked();
-        JosephSample();
+//        JosephSample();
     }
 
     static void JosephSample() {
@@ -46,31 +46,29 @@ public class SingleLinkedDemo {
 //        singleLinked.addNodeExe(new Node(3, "鲁智深", "花和尚"));
 //        singleLinked.addNodeExe(new Node(4, "武松", "行者"));
 //        singleLinked.listExe();
-//
+
 //        System.out.println();
 //        System.out.println("更新单向链表");
 //        singleLinked.updateNodeExe(new Node(2, "公孙胜", "入云龙"));
 //        singleLinked.list();
-//
-//
+
 //        System.out.println();
 //        System.out.println("删除单向链表");
-//        singleLinked.deleteNode(new Node(3, "鲁智深", "花和尚"));
+//        singleLinked.deleteNode(new Node(4, "鲁智深", "花和尚"));
 //        singleLinked.list();
 
-
         System.out.println("按顺序添加单向链表");
-        singleLinked.addSortNode(new Node(1, "林冲", "豹子头"));
-        singleLinked.addSortNode(new Node(4, "宋江", "及时雨"));
+        singleLinked.addSortNode(new Node(4, "林冲", "豹子头"));
+        singleLinked.addSortNode(new Node(1, "宋江", "及时雨"));
         singleLinked.addSortNode(new Node(4, "宋江", "及时雨"));
         singleLinked.addSortNode(new Node(2, "鲁智深", "花和尚"));
         singleLinked.addSortNode(new Node(3, "武松", "行者"));
         singleLinked.list();
-        System.out.println("链表节点个数");
-        System.out.println(singleLinked.getSize());
-        System.out.println("倒数第K个结点");
-        singleLinked.bottomIndex(3);
-        System.out.println();
+//        System.out.println("链表节点个数");
+//        System.out.println(singleLinked.getSize());
+//        System.out.println("倒数第K个结点");
+//        singleLinked.bottomIndex1(1);
+//        System.out.println();
         System.out.println("链表反转");
         singleLinked.reverseExe();
         singleLinked.list();
@@ -78,7 +76,7 @@ public class SingleLinkedDemo {
         singleLinked.reverseLog();
         System.out.println("合并两个单链表");
         SingleLinked singleLinked1 = new SingleLinked();
-        singleLinked1.addNode(new Node(5, "Wynne", "哈哈哈"));
+        singleLinked1.addNode(new Node(1, "Wynne", "哈哈哈"));
         singleLinked1.addNode(new Node(6, "XXW", "哈哈哈"));
         singleLinked1.addNode(new Node(7, "向鲜汶", "嘻嘻嘻"));
 

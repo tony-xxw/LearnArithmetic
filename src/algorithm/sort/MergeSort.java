@@ -1,5 +1,6 @@
 package algorithm.sort;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
@@ -32,6 +33,7 @@ public class MergeSort {
     }
 
     public void merge(int[] arr, int left, int mid, int right, int[] temp) {
+        System.out.println("arr: "+Arrays.toString(arr)+" left: "+ left +" mid: " + mid+" right: " + right +" temp: "+ Arrays.toString(temp));
         int l = left;
         int r = mid + 1;
         int t = 0;

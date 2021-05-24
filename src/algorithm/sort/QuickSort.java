@@ -10,9 +10,10 @@ import java.util.Date;
 public class QuickSort {
 
     public static void main(String[] args) {
-        int[] arr = {10, 4, 8, 5, 5, 5, 3, 11, 2, 1};
+        int[] arr = {10, 4, 8, 5, 1, 7, 3, 11, 2, 5};
 
         QuickSort quickSort = new QuickSort();
+        System.out.println("原始数据: " + Arrays.toString(arr));
         quickSort.sortExe(arr, 0, arr.length - 1);
 //        quickSort.test();
     }
@@ -96,9 +97,12 @@ public class QuickSort {
     }
 
     private void sortExe(int[] array, int left, int right) {
+
         int l = left;
         int r = right;
         int mid = array[(left + right) / 2];
+        System.out.println("left "+ left + " right " + right+" mid "+mid);
+
         int temp = 0;
 
         while (l < r) {

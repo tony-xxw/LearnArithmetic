@@ -1,7 +1,7 @@
 package thread;
 
-import com.oracle.tools.packager.Log;
 
+import java.util.HashMap;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -13,24 +13,29 @@ public class ExecutorPoolMain {
     public static void main(String[] args) {
 
 
-        FutureTask futureTask = new FutureTask(new MyCallThread());
-        Thread task = new Thread(futureTask, "task");
+//        FutureTask futureTask = new FutureTask(new MyCallThread());
+//        Thread task = new Thread(futureTask, "task");
+//
+//        System.out.println("state : " + task.getState().name());
+//        task.start();
+//        System.out.println("state : " + task.getState().name());
+//
+//
+//        try {
+//            System.out.println("result : " + futureTask.get());
+//            System.out.println("state : " + task.getState().name());
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        } catch (ExecutionException e) {
+//            e.printStackTrace();
+//        }
 
-        System.out.println("state : " + task.getState().name());
-        task.start();
-        System.out.println("state : " + task.getState().name());
-
-
-        try {
-            System.out.println("result : " + futureTask.get());
-            System.out.println("state : " + task.getState().name());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
-
+        HashMap<String, String> hashMap = new HashMap<>();
+        hashMap.put("a","b");
     }
+
+
+
 }
 
 class MyCallThread implements Callable<String> {

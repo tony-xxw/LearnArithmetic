@@ -1,5 +1,6 @@
 package algorithm.reflection;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -36,10 +37,17 @@ public class Reflection {
         }
         System.out.println("singleField" + c.getField("str"));
 
+        Annotation[] annotations = c.getDeclaredAnnotations();
+        System.out.println(annotations.length+"0");
+        for (Annotation annotation : annotations) {
+            System.out.println("annotation:  "+annotation);
+        }
+
     }
 }
 
 class parent {
+    @Deprecated
     int x = 10;
 
     private void test() {

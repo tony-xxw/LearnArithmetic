@@ -48,14 +48,6 @@ public class SingleLinked {
         }
 
         Node temp = head;
-//        while (temp.next != null) {
-//            if (temp.next.no == node.no) {
-//                //要删除的结点
-//                temp.next = temp.next.next;
-//            } else {
-//                temp = temp.next;
-//            }
-//        }
         while (temp.next != null) {
             if (temp.next.no == node.no) {
                 temp.next = temp.next.next;
@@ -100,7 +92,7 @@ public class SingleLinked {
             if (temp.no == node.no) {
                 temp.nikeName = node.nikeName;
                 temp.name = node.name;
-
+                break;
             }
             temp = temp.next;
 
@@ -120,11 +112,10 @@ public class SingleLinked {
             if (temp.next.no > node.no) {
                 break;
             } else if (temp.next.no == node.no) {
-                isSame = true;
                 break;
+            } else {
+                temp = temp.next;
             }
-            //找到最后一个节点
-            temp = temp.next;
         }
 
         if (isSame) {
@@ -185,15 +176,15 @@ public class SingleLinked {
         }
 
         Node temp = head.next;
-        Node next;
-        Node reverse = null;
-        while (temp != null) {
-            next = temp.next;
-            temp.next = reverse;
-            reverse = temp;
-            temp = next;
+        Node reset = null;
+        Node current;
+        while (temp!=null){
+            current = temp.next;
+            temp.next = reset;
+            reset = temp;
+            temp = current;
         }
-        head.next = reverse;
+        head.next = reset;
 
     }
 
@@ -229,6 +220,17 @@ public class SingleLinked {
             }
             temp = temp.next;
         }
+    }
+
+    void bottomIndex1(int k) {
+        Node fast = head, slow = head;
+        int t = 0;
+        while (fast != null) {
+            if (t >= k) slow = slow.next;
+            fast = fast.next;
+            t++;
+        }
+        System.out.println("倒数第K个节点为: " + slow.no);
     }
 
     SingleLinked mergeLinkedList(SingleLinked singleLinked) {

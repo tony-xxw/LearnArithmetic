@@ -1,6 +1,5 @@
 package thread;
 
-import sun.jvm.hotspot.types.JShortField;
 
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 

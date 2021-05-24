@@ -28,7 +28,6 @@ public class InsertSort {
             }
             System.out.printf("第%d次排序", i);
             System.out.println(Arrays.toString(array));
-
         }
     }
 
