@@ -19,7 +19,7 @@ public class SortExercise {
         int[] temp = new int[arrys2.length];
         sortExercise.merge(arrys2, 0, arrys2.length - 1, temp);
         System.out.println("快速排序");
-        int[] arrys3 = new int[]{14, 12, 445, 113, 33, 6,12};
+        int[] arrys3 = new int[]{10, 4, 8, 5, 1, 7, 3,5};
         sortExercise.quick(arrys3, 0, arrys3.length - 1);
     }
 

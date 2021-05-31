@@ -60,24 +60,20 @@ public class SelectSort {
 
     private void sortExe(int[] array) {
         for (int i = 0; i < array.length; i++) {
-            int temp = array[i];
-            int tempIndex = i;
+            int oldData = array[i];
+            int oldIndex = i;
+ 
             for (int k = i + 1; k < array.length; k++) {
-                if (temp > array[k]) {
-                    //替换成小值
-                    temp = array[k];
-                    tempIndex = k;
+                if (oldData > array[k]) {
+                    oldData = array[k];
+                    oldIndex = k;
                 }
             }
 
-            //找到最大最小值后
-            if (tempIndex != i) {
-                //有找到值
-                array[tempIndex] = array[i];
-                array[i] = temp;
-
+            if (oldIndex != i) {
+                array[oldIndex] = array[i];
+                array[i] = oldData;
             }
-            System.out.printf("第%d次排序", i + 1);
             System.out.println(Arrays.toString(array));
         }
     }

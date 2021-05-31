@@ -13,7 +13,7 @@ public class ShellSort {
         int[] select = {101, 34, 119, 1, 2, 52, 57, 99, 74};
 
         ShellSort shellSort = new ShellSort();
-        shellSort.sortQuickMove(select);
+        shellSort.sortQuick(select);
 //        shellSort.test();
     }
 
@@ -73,7 +73,7 @@ public class ShellSort {
                     array[j] = temp;
                 }
             }
-//            System.out.println("第" + gap + "轮" + Arrays.toString(array));
+            System.out.println("第" + gap + "轮" + Arrays.toString(array));
 
         }
     }

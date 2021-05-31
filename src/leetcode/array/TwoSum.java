@@ -5,12 +5,16 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 两数之和
+ * https://leetcode-cn.com/problems/two-sum/
+ */
 public class TwoSum {
 
     public static void main(String[] args) {
-        int[] temp = new int[]{2, 7, 11, 15};
+        int[] temp = new int[]{2, 11, 21, 15};
 
-        System.out.println(Arrays.toString(twoSum1(temp, 13)));
+        System.out.println(Arrays.toString(twoSum1(temp, 23)));
     }
 
 
@@ -37,18 +41,15 @@ public class TwoSum {
      */
     public static int[] twoSum1(int[] nums, int target) {
 
-        Map<Integer, Integer> map = new HashMap<>();
-
+        HashMap<Integer, Integer> hashMap = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            //当前哈希表存在一个相加等 目标值的key
-            if (map.containsKey(target - nums[i])) {
-                //存在相加等于标值的key ,  返回相加的角标鱼当前角标
-                return new int[]{map.get(target - nums[i]), i};
+            if (hashMap.containsKey(target - nums[i])) {
+                return new int[]{hashMap.get(target - nums[i]), i};
             }
-            //不存在  以值为key,下标为value 存入map中
-            map.put(nums[i], i);
-
+            hashMap.put(nums[i], i);
         }
         throw new IllegalArgumentException("No two sum solution");
     }
+
+
 }
