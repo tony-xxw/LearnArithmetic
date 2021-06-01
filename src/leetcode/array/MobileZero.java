@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class MobileZero {
     public static void main(String[] args) {
-        explain();
+        deliberately();
     }
 
     private static void explain() {
@@ -60,14 +60,15 @@ public class MobileZero {
     }
 
     private static void deliberately() {
-        int temp[] = new int[]{1, 0, 0, 3, 12};
+        int temp[] = new int[]{0, 0, 0, 1,3, 12};
         int index = 0;
 
         for (int i = 0; i < temp.length; i++) {
             if (temp[i] != 0) {
-                int data = temp[i];
-                temp[i] = 0;
-                temp[index++] = data;
+                int test = temp[i];
+                temp[i] = temp[index];
+                temp[index++] = test;
+
             }
         }
         System.out.println("复习: " + Arrays.toString(temp));

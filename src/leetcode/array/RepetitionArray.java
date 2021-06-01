@@ -4,13 +4,13 @@ import java.util.Arrays;
 
 /**
  * https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/
- *  删除有序数组中的重复项
+ * 删除有序数组中的重复项
  */
 public class RepetitionArray {
     public static void main(String[] args) {
 
         int[] ints = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
-        System.out.println("删除有序数组中的重复项: "+removeDuplicates(ints));
+        System.out.println("删除有序数组中的重复项: " + removeDuplicates(ints));
     }
 
     public static int removeDuplicates(int[] nums) {

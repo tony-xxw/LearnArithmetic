@@ -8,7 +8,7 @@ public class ForMi {
 
     public static void main(String[] args) {
 
-        System.out.println("4的幂: "+isPowerOfFour(16));
+        System.out.println("4的幂: " + isPowerOfFour(16));
     }
 
     public static boolean isPowerOfFour(int n) {
